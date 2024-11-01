@@ -1,0 +1,76 @@
+# Ignore build output directories
+bin/
+obj/
+out/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Auto-generated files
+*.generated.cs
+
+# Logs, database, and other miscellaneous files
+*.log
+*.tlog
+*.vscode/
+*.sln.docstates
+*.ncrunchproject
+*.ncrunchsolution
+.vscode/
+.env
+
+# Resharper
+_ReSharper*/
+*.DotSettings.user
+
+# Packages
+*.nupkg
+*.snupkg
+*.nuspec
+.packages
+
+# Libman
+libman.json
+wwwroot/lib/
+
+# Visual Studio
+.vs/
+.vscode/
+.idea/
+.vscode/*
+
+# Rider
+.idea/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+
+# Debug/Release output
+**/bin
+**/obj
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# macOS files
+.DS_Store
+._*
+
+# Node.js
+node_modules/
+
+# Certificates
+*.pfx
+*.p12
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Temporary files
+$RECYCLE.BIN/

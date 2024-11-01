@@ -1,0 +1,6 @@
+@ScratchApi_HostAddress = http://localhost:5040
+
+GET {{ScratchApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

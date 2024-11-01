@@ -1,0 +1,27 @@
+# Use a .NET SDK image for building the project
+FROM mcr.microsoft.com/dotnet/sdk:9.0-bookworm-slim AS build
+
+RUN apt update && apt install -y clang zlib1g-dev
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the solution file
+COPY ScratchApi.sln ./
+
+# Copy the project file and restore dependencies
+COPY ScratchApi/*.csproj ./ScratchApi/
+RUN dotnet restore
+
+# Copy the rest of the application files
+COPY . ./
+
+# Publish the application with AOT
+RUN dotnet publish ScratchApi/ScratchApi.csproj -c Release -o /app/out --self-contained -r linux-arm64 /p:PublishAot=true /p:StripSymbols=true
+
+# Final image from scratch
+FROM scratch
+COPY --from=build /app/out/ /app/
+
+# Set working directory and entry point
+WORKDIR /app
+ENTRYPOINT ["./ScratchApi"]
