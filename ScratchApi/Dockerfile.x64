@@ -16,9 +16,10 @@ RUN dotnet restore
 COPY . ./
 
 # Publish the application with AOT
-RUN dotnet publish ScratchApi/ScratchApi.csproj -c Release -o /app/out --self-contained -r linux-arm64 /p:PublishAot=true /p:StripSymbols=true
+RUN dotnet publish ScratchApi/ScratchApi.csproj -c Release -o /app/out --self-contained -r linux-x64
 
 # Final image from scratch
+
 FROM scratch
 COPY --from=build /app/out/ /app/
 

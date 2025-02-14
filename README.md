@@ -7,8 +7,24 @@ without depending on a base distribution for the final image.
 
 Able to build and run the app locally but not yet got it working in Docker
 
-```shell
-dotnet publish ScratchApi/ScratchApi.csproj -c Release -o ./out --self-contained -r linux-arm64 /p:PublishAot=true /p:StripSymbols=true
+### On Mac Os (ARM)
 
+```shell
+dotnet publish ScratchApi/ScratchApi.csproj -c Release -o ./out --self-contained -r linux-arm64
 ./out/ScratchApi
+```
+
+```shell
+docker build -f ScratchApi/Dockerfile.arm64 -t scratch .
+```
+
+### On Windows / WSL (x64)
+
+```shell
+dotnet publish ScratchApi/ScratchApi.csproj -c Release -o ./out --self-contained -r linux-arm64
+./out/ScratchApi
+```
+
+```shell
+docker build -f ScratchApi/Dockerfile.arm64 -t scratch .
 ```

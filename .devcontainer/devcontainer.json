@@ -11,7 +11,7 @@
     },
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "sudo apt update && sudo apt upgrade -y && sudo apt install clang zlib1g-dev -y && dotnet restore",
+	"postCreateCommand": "sudo apt update && sudo apt upgrade -y && sudo apt install clang zlib1g-dev -y && sudo usermod -aG docker vscode",
 
 	// Configure tool-specific properties.
 	"customizations": {
